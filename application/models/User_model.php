@@ -118,7 +118,7 @@ class User_model extends CI_Model
 	 * @param $role
 	 * @return bool|string
 	 */
-	public function add_user($username, $email, $password, $role)
+	public function add_user($username, $email, $display_name, $password, $role)
 	{
 		if ( ! $this->form_validation->alpha_numeric($username) )
 			return 'Username may only contain alpha-numeric characters.';
@@ -137,6 +137,7 @@ class User_model extends CI_Model
 		$user=array(
 			'username' => $username,
 			'email' => $email,
+			'display_name' => $display_name,
 			'password' => $this->password_hash->HashPassword($password),
 			'role' => $role
 		);
@@ -173,26 +174,26 @@ class User_model extends CI_Model
 			if (strlen($line) == 0 OR $line[0] == '#')
 				continue; //ignore comments and empty lines
 
-			$parts = preg_split('/\s+/', $line);
-			if (count($parts) != 4)
+			$parts = preg_split('/,+/', $line);
+			if (count($parts) != 5)
 				continue; //ignore lines that not contain 4 parts
 
-			if (strtolower(substr($parts[2], 0, 6)) == 'random')
+			if (strtolower(substr($parts[3], 0, 6)) == 'random')
 			{
 				// generate random password
-				$len = trim(substr($parts[2], 6), '[]');
+				$len = trim(substr($parts[3], 6), '[]');
 				if (is_numeric($len)){
 					$this->load->helper('string');
-					$parts[2] = shj_random_password($len);
+					$parts[3] = shj_random_password($len);
 				}
 			}
 
-			$result = $this->add_user($parts[0], $parts[1], $parts[2], $parts[3]);
+			$result = $this->add_user($parts[0], $parts[1], $parts[2], $parts[3], $parts[4]);
 
 			if ($result === TRUE)
-				array_push($users_ok, array($parts[0], $parts[1], $parts[2], $parts[3]));
+				array_push($users_ok, array($parts[0], $parts[1], $parts[2], $parts[3], $parts[4]));
 			else
-				array_push($users_error, array($parts[0], $parts[1], $parts[2], $parts[3], $result));
+				array_push($users_error, array($parts[0], $parts[1], $parts[2], $parts[3], $parts[4], $result));
 
 		} // end of loop
 
