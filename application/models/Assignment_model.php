@@ -38,6 +38,17 @@ class Assignment_model extends CI_Model
 		{
 			$extra_time *= $extra_item;
 		}
+
+		$archived_assignment = 0;
+		$start_time = date('Y-m-d H:i:s', strtotime($this->input->post('start_time')));
+		$finish_time = date('Y-m-d H:i:s', strtotime($this->input->post('finish_time')));
+		if ($this->input->post('archived_assignment')!==NULL) {
+			$archived_assignment = 1;
+			$start_time = date('Y-m-d H:i:s', 0);
+			$finish_time = date('Y-m-d H:i:s', 2147483647);
+			$extra_time = 0;
+		}
+
 		$assignment = array(
 			'id' => $id,
 			'name' => $this->input->post('assignment_name'),
@@ -47,11 +58,12 @@ class Assignment_model extends CI_Model
 			'scoreboard' => ($this->input->post('scoreboard')===NULL?0:1),
 			'javaexceptions' => ($this->input->post('javaexceptions')===NULL?0:1),
 			'description' => '', /* todo */
-			'start_time' => date('Y-m-d H:i:s', strtotime($this->input->post('start_time'))),
-			'finish_time' => date('Y-m-d H:i:s', strtotime($this->input->post('finish_time'))),
+			'start_time' => $start_time,
+			'finish_time' => $finish_time,
 			'extra_time' => $extra_time*60,
 			'late_rule' => $this->input->post('late_rule'),
-			'participants' => $this->input->post('participants')
+			'participants' => $this->input->post('participants'),
+			'archived_assignment' => $archived_assignment
 		);
 		if($edit)
 		{

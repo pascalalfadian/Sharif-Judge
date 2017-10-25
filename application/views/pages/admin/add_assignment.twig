@@ -39,6 +39,18 @@
 			shj.num_of_problems++;
 			$('#nop').attr('value', shj.num_of_problems);
 		});
+    $("#form_a_archived_assignment").click(function(){
+			if ($("#form_a_archived_assignment").is(':checked')) {
+        $("#start_time").val('1970-01-01 01:00:00');
+        $("#finish_time").val('2038-01-19 04:14:07');
+        $("#form_extra_time").val('0');
+      }
+      else{
+        $("#start_time").val('');
+        $("#finish_time").val('');
+        $("#form_extra_time").val('');
+      }
+		});
 		$(document).on('click', '.delete_problem', function(){
 			if (shj.num_of_problems==1) return;
 			var row = $(this).parents('tr');
@@ -152,6 +164,12 @@
 		<label for="form_a_javaexceptions" class="default">Java Exceptions</label>
 		<span class="form_comment space-left">Check this to show Java exceptions to users</span>
 		{{ form_error('javaexceptions', '<div class="shj_error">', '</div>') }}
+	</p>
+  <p class="input_p">
+		<input id="form_a_archived_assignment" type="checkbox" name="archived_assignment" value="1" {{ edit ? (edit_assignment.archived_assignment ? 'checked') : set_checkbox('archived_assignment', '1')|raw }} />
+		<label for="form_a_archived_assignment" class="default">Archived Assignment</label>
+		<span class="form_comment space-left">Check this to make an archived assignment</span>
+		{{ form_error('archived_assignment', '<div class="shj_error">', '</div>') }}
 	</p>
 	<p class="input_p">
 		<label for="form_late_rule">Coefficient rule (<a target="_blank" href="https://github.com/mjnaderi/Sharif-Judge/blob/docs/v1.4/add_assignment.md#coefficient-rule">?</a>)</label><br>
