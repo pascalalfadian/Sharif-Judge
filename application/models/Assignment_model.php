@@ -45,7 +45,7 @@ class Assignment_model extends CI_Model
 		if ($this->input->post('archived_assignment')!==NULL) {
 			$archived_assignment = 1;
 			$start_time = date('Y-m-d H:i:s', 0);
-			$finish_time = date('Y-m-d H:i:s', 2147483647);
+			$finish_time = date('Y-m-d H:i:s', PHP_INT_MAX);
 			$extra_time = 0;
 		}
 
