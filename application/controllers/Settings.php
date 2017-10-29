@@ -113,9 +113,10 @@ class Settings extends CI_Controller
 					'results_per_page_all' => $this->input->post('rpp_all'),
 					'results_per_page_final' => $this->input->post('rpp_final'),
 					'week_start' => $this->input->post('week_start'),
+					'lock_student_display_name' => $this->input->post('lock_student_display_name')===NULL?0:1,
 				)
 			);
-			
+
 		}
 		else
 			$this->form_status = 'error';

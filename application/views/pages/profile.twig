@@ -28,7 +28,13 @@
 </p>
 <p class="input_p clear">
 	<label for="form_name" class="short2">Name:</label>
-	<input id="form_name" type="text" name="display_name" class="sharif_input medium" value="{{ display_name }}"/>
+
+  {% if lock_student_display_name == 1 %}
+  <input id="form_name" type="text" name="display_name" class="sharif_input medium" value="{{ display_name }}" disabled/>
+  {% else %}
+  <input id="form_name" type="text" name="display_name" class="sharif_input medium" value="{{ display_name }}"/>
+  {% endif %}
+
 	{{ form_error('display_name', '<div class="shj_error">', '</div>') }}
 </p>
 <p class="input_p clear">
