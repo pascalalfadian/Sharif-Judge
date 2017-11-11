@@ -176,7 +176,7 @@ class User_model extends CI_Model
 
 			$parts = preg_split('/,+/', $line);
 			if (count($parts) != 5)
-				continue; //ignore lines that not contain 4 parts
+				continue; //ignore lines that not contain 5 parts
 
 			if (strtolower(substr($parts[3], 0, 6)) == 'random')
 			{
