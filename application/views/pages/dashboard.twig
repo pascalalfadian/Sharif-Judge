@@ -31,6 +31,9 @@ $(document).ready(function () {
   				{id:{{ assignment.id }},title:'{{ assignment.name|e('js') }}', start:'{{ assignment.start_time }}', end:' {{ assignment.finish_time }}',
   				allDay:false,color:'{{ colors[(loop.index0)%colors|length] }}'}
         {% endif %}
+        {% if assignment.archived_assignment == '1' %}
+  				{}
+        {% endif %}
 			{% if not loop.last %},{% endif %}
 			{% endfor %}
 		]
