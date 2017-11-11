@@ -433,7 +433,6 @@ class Assignments extends CI_Controller
 
 
 		// Upload Tests (zip file)
-		//shell_exec('rm -f '.$assignments_root.'/*.zip');
 		unlink($assignments_root.'/*.zip');
 		$config = array(
 			'upload_path' => $assignments_root,
@@ -483,7 +482,6 @@ class Assignments extends CI_Controller
 		{
 			foreach($old_pdf_files as $old_name)
 				unlink($old_name);
-				//shell_exec("rm -f $old_name");
 			$this->messages[] = array(
 				'type' => 'success',
 				'text' => 'PDF file uploaded successfully.'
