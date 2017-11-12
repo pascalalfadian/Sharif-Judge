@@ -102,7 +102,7 @@ class Assignments extends CI_Controller
 		$finishtime = strtotime($this->assignment_model->assignment_info($assignment_id)['finish_time']);
 		$starttime = strtotime($this->assignment_model->assignment_info($assignment_id)['start_time']);
 		$extratime = $this->assignment_model->assignment_info($assignment_id)['extra_time'];
-		
+
 		// Find pdf file
 		if ($problem_id === NULL)
 			$pattern = rtrim($this->settings_model->get_setting('assignments_root'),'/')."/assignment_{$assignment_id}/*.pdf";
@@ -433,8 +433,7 @@ class Assignments extends CI_Controller
 
 
 		// Upload Tests (zip file)
-
-		shell_exec('rm -f '.$assignments_root.'/*.zip');
+		unlink($assignments_root.'/*.zip');
 		$config = array(
 			'upload_path' => $assignments_root,
 			'allowed_types' => 'zip',
@@ -482,7 +481,7 @@ class Assignments extends CI_Controller
 		else
 		{
 			foreach($old_pdf_files as $old_name)
-				shell_exec("rm -f $old_name");
+				unlink($old_name);
 			$this->messages[] = array(
 				'type' => 'success',
 				'text' => 'PDF file uploaded successfully.'
