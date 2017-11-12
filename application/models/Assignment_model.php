@@ -38,6 +38,9 @@ class Assignment_model extends CI_Model
 		{
 			$extra_time *= $extra_item;
 		}
+
+		$archived_assignment = $archived_assignment = $this->input->post('archived_assignment')!==NULL ? 1 : 0;
+
 		$assignment = array(
 			'id' => $id,
 			'name' => $this->input->post('assignment_name'),
@@ -51,7 +54,8 @@ class Assignment_model extends CI_Model
 			'finish_time' => date('Y-m-d H:i:s', strtotime($this->input->post('finish_time'))),
 			'extra_time' => $extra_time*60,
 			'late_rule' => $this->input->post('late_rule'),
-			'participants' => $this->input->post('participants')
+			'participants' => $this->input->post('participants'),
+			'archived_assignment' => $archived_assignment
 		);
 		if($edit)
 		{

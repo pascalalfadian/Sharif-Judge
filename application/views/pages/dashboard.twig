@@ -27,8 +27,13 @@ $(document).ready(function () {
 		events: [
 			{% set colors = ['#812C8C','#FF750D','#2C578C','#013440','#A6222C','#42758C','#02A300','#BA6900'] %}
 			{% for assignment in all_assignments %}
-				{id:{{ assignment.id }},title:'{{ assignment.name|e('js') }}', start:'{{ assignment.start_time }}', end:' {{ assignment.finish_time }}',
-				allDay:false,color:'{{ colors[(loop.index0)%colors|length] }}'}
+        {% if assignment.archived_assignment == '0' %}
+  				{id:{{ assignment.id }},title:'{{ assignment.name|e('js') }}', start:'{{ assignment.start_time }}', end:' {{ assignment.finish_time }}',
+  				allDay:false,color:'{{ colors[(loop.index0)%colors|length] }}'}
+        {% endif %}
+        {% if assignment.archived_assignment == '1' %}
+  				{}
+        {% endif %}
 			{% if not loop.last %},{% endif %}
 			{% endfor %}
 		]
