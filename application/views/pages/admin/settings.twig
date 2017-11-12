@@ -114,6 +114,11 @@ $(document).ready(function(){
 		<label for="form_log">Log</label><br>
 		<span class="form_comment">Enable Log</span>
 	</p>
+  <p class="input_p">
+		<input id="form_lock_student_display_name" type="checkbox" name="lock_student_display_name" value="1" {{ lock_student_display_name ? 'checked' }}/>
+		<label for="form_lock_student_display_name">Lock Student's Display Name</label><br>
+		<span class="form_comment">Student's can't change their display name</span>
+	</p>
 	<p class="input_p">
 		<label for="form_late_rule">Default Coefficient Rule</label>
 		<span class="form_comment clear">PHP script without &lt;?php ?&gt; tags</span><br>
