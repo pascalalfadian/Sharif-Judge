@@ -105,7 +105,7 @@ class Install extends CI_Controller
 				'late_rule'     => array('type' => 'TEXT'),
 				'participants'  => array('type' => 'TEXT', 'default' => ''),
 				'moss_update'   => array('type' => 'VARCHAR', 'constraint' => 30, 'default' => 'Never'),
-				'archived_assignment'    => array('type' => 'TINYINT', 'constraint' => 1),
+				'archived_assignment'          => array('type' => 'TINYINT', 'constraint' => 1),
 			);
 			$this->dbforge->add_field($fields);
 			$this->dbforge->add_key('id', TRUE); // PRIMARY KEY
@@ -221,7 +221,7 @@ class Install extends CI_Controller
 				array('shj_key' => 'results_per_page_all',   'shj_value' => '40'),
 				array('shj_key' => 'results_per_page_final', 'shj_value' => '80'),
 				array('shj_key' => 'week_start',             'shj_value' => '0'),
-				array('shj_key' => 'lock_student_display_name',             'shj_value' => '1'),
+				array('shj_key' => 'lock_student_display_name',      'shj_value' => '0'),
 			));
 			if ( ! $result)
 				show_error("Error adding data to table ".$this->db->dbprefix('settings'));
@@ -255,6 +255,7 @@ class Install extends CI_Controller
 			$this->user_model->add_user(
 				$this->input->post('username'),
 				$this->input->post('email'),
+				'Admin',
 				$this->input->post('password'),
 				'admin'
 			);
