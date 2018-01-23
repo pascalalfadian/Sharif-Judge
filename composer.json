@@ -1,0 +1,19 @@
+{
+    "name": "ftis-admin/sharif-judge",
+    "description": "Custom distro of Sharif judge for FTIS UNPAR",
+    "type": "project",
+    "license": "GPL v3",
+    "authors": [
+        {
+            "name": "Chris",
+            "email": "chris@christianto.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+		"dapphp/radius": "^2.5"
+	},
+    "config": {
+        "vendor-dir": "application/vendor"
+    }
+}

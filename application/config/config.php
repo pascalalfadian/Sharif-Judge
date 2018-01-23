@@ -39,7 +39,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= ($_SERVER['HTTPS']?"https":"http") . '://'.$_SERVER['HTTP_HOST'] . '/';
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -272,7 +272,7 @@ $config['cache_path'] = '';
 | http://codeigniter.com/user_guide/libraries/sessions.html
 |
 */
-$config['encryption_key'] = 'PLEASE_CHANGE_ME_TO_A_RANDOM_KEY';
+$config['encryption_key'] = '5Z8zCtoXBYETev1369UrVn7imfjNRqFP';
 
 /*
 |--------------------------------------------------------------------------
@@ -447,6 +447,11 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+/*
+| Adding up composer support, so we dont have to fetch the packages everytime it
+| got updated.
+*/
+require __DIR__ . "/../vendor/autoload.php";
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

@@ -201,22 +201,12 @@ class User_model extends CI_Model
 		{
 			// sending usernames and passwords by email
 			$this->load->library('email');
+			$this->load->config('secrets');
 			$config = array(
 				'mailtype'  => 'html',
 				'charset'   => 'iso-8859-1'
 			);
-			/*
-			// You can use gmail's smtp server
-			$config = Array(
-				'protocol' => 'smtp',
-				'smtp_host' => 'ssl://smtp.googlemail.com',
-				'smtp_port' => 465,
-				'smtp_user' => 'example@gmail.com',
-				'smtp_pass' => 'your-gmail-password',
-				'mailtype'  => 'html',
-				'charset'   => 'iso-8859-1'
-			);
-			*/
+			$config = $this->config->item('shj_mail');
 			$this->email->initialize($config);
 			$this->email->set_newline("\r\n");
 			$count_users = count($users_ok);
@@ -458,22 +448,13 @@ class User_model extends CI_Model
 
 		// send the email:
 		$this->load->library('email');
+		$this->load->config('secrets');
+		
 		$config = array(
 			'mailtype'  => 'html',
 			'charset'   => 'iso-8859-1'
 		);
-		/*
-		// You can use gmail's smtp server
-		$config = Array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'example@gmail.com',
-			'smtp_pass' => 'your-gmail-password',
-			'mailtype'  => 'html',
-			'charset'   => 'iso-8859-1'
-		);
-		*/
+		$config = $this->config->item('shj_mail');
 		$this->email->initialize($config);
 		$this->email->set_newline("\r\n");
 		$this->email->from($this->settings_model->get_setting('mail_from'), $this->settings_model->get_setting('mail_from_name'));

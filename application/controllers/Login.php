@@ -5,6 +5,7 @@
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+use Dapphp\Radius\Radius;
 
 class Login extends CI_Controller
 {
@@ -52,7 +53,16 @@ class Login extends CI_Controller
 		if($this->form_validation->run()){
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
-			if($this->user_model->validate_user($username, $password)){
+			
+			$this->load->config('secrets');
+			if($this->config->item('shj_authenticate')) {
+				$client = new Radius();
+				$client->setServer($this->config->item('shj_radius')['server']) // RADIUS server address
+					->setSecret($this->config->item('shj_radius')['secret']);
+			}
+			if($this->user_model->validate_user($username, $password) || 
+				($this->config->item('shj_authenticate') && 
+				$client->accessRequest($username, $password))){
 				// setting the session and redirecting to dashboard:
 				$login_data = array(
 					'username'  => $username,
