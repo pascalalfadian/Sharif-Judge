@@ -219,9 +219,9 @@ class User_model extends CI_Model
 				$this->email->subject('Sharif Judge Username and Password');
 				$text = $this->settings_model->get_setting('add_user_mail');
 				$text = str_replace('{SITE_URL}', base_url(), $text);
-				$text = str_replace('{ROLE}', $user[3], $text);
+				$text = str_replace('{ROLE}', $user[4], $text);
 				$text = str_replace('{USERNAME}', $user[0], $text);
-				$text = str_replace('{PASSWORD}', htmlspecialchars($user[2]), $text);
+				$text = str_replace('{PASSWORD}', htmlspecialchars($user[3]), $text);
 				$text = str_replace('{LOGIN_URL}', base_url(), $text);
 				$this->email->message($text);
 				$this->email->send();
