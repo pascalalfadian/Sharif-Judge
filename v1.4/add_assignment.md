@@ -153,9 +153,9 @@ Allowed Languages
 
 Set allowed languages for each problems in this field (comma separated).
 
-Available languages are: `C`, `C++`, `Java`, `Python 2`, `Python 3`, `Zip`, `PDF`
+Available languages are: `C`, `C++`, `Java`, `Python 2`, `Python 3`, `Zip`, `PDF`, `TXT`
 
-Note: You can use `Zip` or `PDF` only if you have enabled `Upload Only` option.
+Note: You can use `Zip`, `PDF` and `TXT` only if you have enabled `Upload Only` option.
 
 e.g. `C, C++   , Zip` or `Python 2,Python 3` or `Java ,C`
 
@@ -181,4 +181,4 @@ This field should not contain any space. You may consider using `-b`, `-bB`, `-i
 Upload Only
 -----------
 
-If you set a problem as Upload-Only, Sharif Judge will not judge submissions of that problem. You can use `Zip` and `PDF` in allowed languages if you have enabled this option.
+If you set a problem as Upload-Only, Sharif Judge will not judge submissions of that problem. You can use `Zip`, `PDF` and `TXT` in allowed languages if you have enabled this option.
