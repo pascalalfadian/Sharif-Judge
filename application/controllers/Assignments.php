@@ -111,13 +111,13 @@ class Assignments extends CI_Controller
 		$pdf_files = glob($pattern);
 		if ( ! $pdf_files )
 			show_error("File not found");
-		elseif (!$this->assignment_model->assignment_info($assignment_id)['open'] && $this->user->level == 0 )
+		elseif (!$this->assignment_model->assignment_info($assignment_id)['open'])
 			show_error('Selected assignment has been closed.');
 		elseif	( ! $this->assignment_model->is_participant($this->assignment_model->assignment_info($assignment_id)['participants'],$this->user->username) )
 			show_error('You are not registered for submitting.');
-		elseif ( shj_now() > $finishtime + $extratime && $this->user->level == 0 )
+		elseif ( shj_now() > $finishtime + $extratime)
 			show_error('Selected assignment has finished.');
-		elseif ( shj_now() < $starttime && $this->user->level == 0 )
+		elseif ( shj_now() < $starttime)
 			show_error('Selected assignment has not started.');
 
 		// Download the file to browser
