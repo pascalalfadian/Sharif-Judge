@@ -124,7 +124,7 @@ elseif ($delay > $extra_time)
 
 Problems
 
-![Problems](problems.png)
+![Problems](img/problems.png)
 
 Enter information about problems in this field. There are several items in this field.
 
