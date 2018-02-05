@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * SharIF Judge online judge
  * @file User_model.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */
@@ -216,7 +216,7 @@ class User_model extends CI_Model
 				$counter++;
 				$this->email->from($this->settings_model->get_setting('mail_from'), $this->settings_model->get_setting('mail_from_name'));
 				$this->email->to($user[1]);
-				$this->email->subject('Sharif Judge Username and Password');
+				$this->email->subject('SharIF Judge Username and Password');
 				$text = $this->settings_model->get_setting('add_user_mail');
 				$text = str_replace('{SITE_URL}', base_url(), $text);
 				$text = str_replace('{ROLE}', $user[4], $text);

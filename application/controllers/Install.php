@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * SharIF Judge online judge
  * @file Install.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */
@@ -24,7 +24,7 @@ class Install extends CI_Controller
 
 
 		if ($this->db->table_exists('sessions'))
-			show_error('Sharif Judge is already installed.');
+			show_error('SharIF Judge is already installed.');
 
 		$this->form_validation->set_rules('username', 'username', 'required|min_length[3]|max_length[20]|alpha_numeric|lowercase');
 		$this->form_validation->set_rules('email', 'email', 'required|max_length[40]|valid_email|lowercase');
@@ -215,8 +215,8 @@ class Install extends CI_Controller
 				array('shj_key' => 'registration_code',      'shj_value' => '0'),
 				array('shj_key' => 'mail_from',              'shj_value' => 'no-reply+shj@labftis.net'),
 				array('shj_key' => 'mail_from_name',         'shj_value' => 'Judge from FTIS Administrator'),
-				array('shj_key' => 'reset_password_mail',    'shj_value' => "<p>\nSomeone requested a password reset for your Sharif Judge account at {SITE_URL}.\n</p>\n<p>\nTo change your password, visit this link:\n</p>\n<p>\n<a href=\"{RESET_LINK}\">Reset Password</a>\n</p>\n<p>\nThe link is valid for {VALID_TIME}. If you don't want to change your password, just ignore this email.\n</p>"),
-				array('shj_key' => 'add_user_mail',          'shj_value' => "<p>\nHello! You are registered in Sharif Judge at {SITE_URL} as {ROLE}.\n</p>\n<p>\nYour username: {USERNAME}\n</p>\n<p>\nYour password: {PASSWORD}\n</p>\n<p>\nYou can log in at <a href=\"{LOGIN_URL}\">{LOGIN_URL}</a>\n</p>"),
+				array('shj_key' => 'reset_password_mail',    'shj_value' => "<p>\nSomeone requested a password reset for your SharIF Judge account at {SITE_URL}.\n</p>\n<p>\nTo change your password, visit this link:\n</p>\n<p>\n<a href=\"{RESET_LINK}\">Reset Password</a>\n</p>\n<p>\nThe link is valid for {VALID_TIME}. If you don't want to change your password, just ignore this email.\n</p>"),
+				array('shj_key' => 'add_user_mail',          'shj_value' => "<p>\nHello! You are registered in SharIF Judge at {SITE_URL} as {ROLE}.\n</p>\n<p>\nYour username: {USERNAME}\n</p>\n<p>\nYour password: {PASSWORD}\n</p>\n<p>\nYou can log in at <a href=\"{LOGIN_URL}\">{LOGIN_URL}</a>\n</p>"),
 				array('shj_key' => 'moss_userid',            'shj_value' => ''),
 				array('shj_key' => 'results_per_page_all',   'shj_value' => '40'),
 				array('shj_key' => 'results_per_page_final', 'shj_value' => '80'),

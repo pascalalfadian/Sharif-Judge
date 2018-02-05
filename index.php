@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge
+ * SharIF Judge
  *
  * A free and open source online judge for programming assignments
  *

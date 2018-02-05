@@ -1,6 +1,6 @@
 <?php
 /**
- * Sharif Judge online judge
+ * SharIF Judge online judge
  * @file Settings_model.php
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  */

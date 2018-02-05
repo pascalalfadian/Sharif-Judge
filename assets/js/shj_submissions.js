@@ -1,5 +1,5 @@
 /**
- * Sharif Judge
+ * SharIF Judge
  * @file shj_submissions.js
  * @author Mohammad Javad Naderi <mjnaderi@gmail.com>
  *
