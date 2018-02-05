@@ -1,4 +1,4 @@
-# Sharif Judge v1.4 Documentation
+# SharIF Judge v1.4 Documentation
 
 Table of contents:
 

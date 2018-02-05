@@ -1,9 +1,9 @@
 # Users
 
-In Sharif Judge, users are grouped into 4 groups: Admins, Head Instructors, Instructors, and Students.
+In SharIF Judge, users are grouped into 4 groups: Admins, Head Instructors, Instructors, and Students.
 
 ## User roles
-There are four user roles in Sharif Judge.
+There are four user roles in SharIF Judge.
 
 | User Role       | User Level |
 | --------------- | ---------- |
