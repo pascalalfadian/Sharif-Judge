@@ -1,7 +1,7 @@
 SharIF Judge
 ============
 
-[SharIF Judge](https://github.com/mjnaderi/Sharif-Judge) is a free and open source online judge for C, C++, Java and Python programming courses.
+[SharIF Judge](https://github.com/ftisunpar/Sharif-Judge) is a free and open source online judge for C, C++, Java and Python programming courses. SharIF Judge is a fork of the original [SharIF Judge](https://github.com/mjnaderi/Sharif-Judge) beautifully created by @mjnaderi. This forked version contain many improvements, mostly due to the needs by our faculty at @ftisunpar.
 
 The web interface is written in PHP (CodeIgniter framework) and the main backend is written in BASH.
 
